@@ -25,16 +25,16 @@ public class _1_InsertSort {
      * 基本插入排序
      * @param arr
      */
-    private static void insertSort(int[] arr) {
+    private void insertSort(int[] arr) {
+        int i, j, x;
         int len = arr.length;
-        for (int i = 1; i < len; i++) {
+        for (i=1; i<len; i++) {
             if (arr[i] < arr[i-1]) {
-                int x = arr[i];//x为待插入元素
-                int j;
-                for (j = i-1; j >= 0 && x < arr[j]; j--) {  // 通过循环，逐个后移一位寻找要插入的位置
+                x = arr[i];//x为待插入元素
+                for (j=i-1; j>=0 && x<arr[j]; j--) {//向前遍历寻找待插入的位置
                     arr[j+1] = arr[j];
                 }
-                arr[j+1] = x;// 插入
+                arr[j+1] = x;//插入
             }
         }
     }
