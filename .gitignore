@@ -1,0 +1,12 @@
+*/src/main/webapp/WEB-INF/classes
+.project
+.classpath
+*.MF
+.settings
+*.iws
+*.ipr
+#*git*
+*idea*
+*.iml
+bin/
+target/
