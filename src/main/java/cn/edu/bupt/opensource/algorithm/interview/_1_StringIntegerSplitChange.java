@@ -17,6 +17,7 @@ import java.util.Scanner;
  *      1）对于新形成的小数或整数，不可包含多余的前缀0，例如：0010、010.1不合法；
  *      2）对于小数，不可包含多余的后缀0，例如：0.10不合法；
  *      3）.1和1.这样的小数不合法
+ *
  */
 public class _1_StringIntegerSplitChange {
 
