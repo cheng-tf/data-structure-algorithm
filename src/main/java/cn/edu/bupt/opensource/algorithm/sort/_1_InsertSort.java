@@ -28,10 +28,10 @@ public class _1_InsertSort {
     private void insertSort(int[] arr) {
         int i, j, x;
         int len = arr.length;
-        for (i=1; i<len; i++) {
-            if (arr[i] < arr[i-1]) {
-                x = arr[i];//x为待插入元素
-                for (j=i-1; j>=0 && x<arr[j]; j--) {//向前遍历寻找待插入的位置
+        for(i = 1; i < len; i++) {
+            if(arr[i] < arr[i-1]) {
+                x = arr[i];//待插入元素
+                for(j = i-1; j >= 0 && x < arr[j]; j--) {//向前遍历有序子序列，寻找待插入的位置
                     arr[j+1] = arr[j];
                 }
                 arr[j+1] = x;//插入

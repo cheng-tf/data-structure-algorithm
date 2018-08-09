@@ -10,7 +10,7 @@ import org.junit.Test;
  * @author ChengTengfei
  * @version 1.0
  *
- * 堆排序（Heap Sort）： 一种树形选择排序，是对直接选择排序的有效改进。
+ * 堆排序（Heap Sort）： 一种树形选择排序，是对直接选择排序的改进。
  *
  *
  *

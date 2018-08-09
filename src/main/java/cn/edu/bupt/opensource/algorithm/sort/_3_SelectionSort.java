@@ -38,16 +38,14 @@ public class _3_SelectionSort {
     private void simpleSelectionSort(int[] arr) {
         int len = arr.length;
         int i, j, min, temp;
-        for(i=0; i<len; i++) {
+        for(i = 0; i < len; i++) {
             min = i;//最小值下标
             for(j = i+1; j < len; j++) {//向后遍历寻找最小值下标
-                if(arr[min] > arr[j]) {
+                if(arr[j] < arr[min]) {
                     min = j;
                 }
             }
-            if (min != i) {//交换位置
-                temp = arr[min]; arr[min] = arr[i]; arr[i] = temp;
-            }
+            temp = arr[min]; arr[min] = arr[i]; arr[i] = temp;//交换位置
         }
     }
 
@@ -58,7 +56,7 @@ public class _3_SelectionSort {
     private void simpleSelectionSort2(int[] arr) {
         int len = arr.length;
         int i, j, min, max, temp;
-        for(i=0; i<len/2; i++) {//n/2趟选择排序
+        for(i=1; i<=len/2; i++) {//n/2趟选择排序
             min = i;//最小值下标
             max = i;//最大值下标
             for(j = i; j < len-i; j++) {//向后遍历寻找最小值、最大值下标
@@ -71,12 +69,8 @@ public class _3_SelectionSort {
                 }
             }
             // 交换位置
-            if (min != i) {
-                temp = arr[min]; arr[min] = arr[i]; arr[i] = temp;
-            }
-            if (max != len-1-i) {
-                temp = arr[max]; arr[max] = arr[len-1-i]; arr[len-1-i] = temp;
-            }
+            temp = arr[min]; arr[min] = arr[i-1]; arr[i-1] = temp;
+            temp = arr[max]; arr[max] = arr[len-i]; arr[len-i] = temp;
         }
     }
 

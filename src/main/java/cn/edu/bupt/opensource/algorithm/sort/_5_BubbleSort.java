@@ -42,14 +42,14 @@ public class _5_BubbleSort {
     }
 
     /**
-     * 改进的冒泡排序2
+     * 改进的冒泡排序
      * @param arr
      */
     private void improvedBubbleSort(int[] arr) {
         int i = arr.length-1;
         int j, temp, pos;
         while(i > 0) {
-            pos = 0;
+            pos = 0;//每趟开始时，无记录交换
             for(j = 0; j < i; j++) {
                 if(arr[j] > arr[j+1]) {
                     pos = j;

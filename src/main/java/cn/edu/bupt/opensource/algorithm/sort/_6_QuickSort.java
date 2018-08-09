@@ -3,7 +3,7 @@ package cn.edu.bupt.opensource.algorithm.sort;
 import org.junit.Test;
 
 /**
- * <p>Title: _6_quickSort</p>
+ * <p>Title: _6_QuickSort</p>
  * <p>Description: 快速排序 </p>
  * <p>Company: bupt.edu.cn</p>
  * <p>Created: 2018-08-08 19:25</p>
@@ -21,20 +21,42 @@ import org.junit.Test;
  *      但是，当初始序列按关键码有序或基本有序时，快排序反而蜕化为冒泡排序。
  *      改进：通常以“三者取中法”来选取基准记录，即将排序区间的两个端点与中点三个记录关键码居中的调整为支点记录。
  *      快速排序是一个不稳定的排序方法。
- *  快速排序的改进：
- *      在本改进算法中,只对长度大于k的子序列递归调用快速排序,让原序列基本有序，然后再对整个基本有序序列用插入排序算法排序。
- *      实践证明，改进后的算法时间复杂度有所降低，且当k取值为 8 左右时,改进算法的性能最佳。
  *
  */
-public class _6_quickSort {
+public class _6_QuickSort {
 
     /**
      * 快速排序
      * @param arr
      */
     private void quickSort(int[] arr) {
-
+        int len = arr.length;
+        if(len > 0) {
+            quickSort(arr, 0, len-1);
+        }
     }
+
+    private void quickSort(int[] arr, int low, int high) {
+        if(low >= high) {//递归结束条件
+          return;
+        }
+        int key = arr[low];//基准元素，在此趟排序时空出一个位置
+        int left = low, right = high;//存储
+        while(left < right) {
+            while(left < right && arr[right] >= key) {//从高位right寻找比基准小的元素，与低位left交换位置
+                right--;
+            }
+            arr[left] = arr[right];
+            while(left < right && arr[left] <= key) {//从低位left寻找比基准大的元素，与高位right交换位置
+                left++;
+            }
+            arr[right] = arr[left];
+        }
+        arr[left] = key;//此时left=right，即基准元素在排好序后的正确位置
+        quickSort(arr, low, left-1);//低子序列递归排序
+        quickSort(arr, left+1, high);//高子序列递归排序
+    }
+
 
     @Test
     public void test() {
