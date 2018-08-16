@@ -51,7 +51,7 @@ public class _2_ShellSort {
         for(i = dk; i < len; i++) {
             if(arr[i] < arr[i-dk]) {
                 x = arr[i];
-                for(j=i-dk; j>=0 && x<arr[j]; j=j-dk) {
+                for(j=i-dk; j>=0 && x<arr[j]; j-=dk) {
                     arr[j+dk] = arr[j];
                 }
                 arr[j+dk] = x;
