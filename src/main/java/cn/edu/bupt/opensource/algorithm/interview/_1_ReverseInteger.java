@@ -10,6 +10,8 @@ import org.junit.Test;
  * @author ChengTengfei
  * @version 1.0
  *
+ * 2018/08/17 美团
+ *
  * 给定一个整数，进行翻转。例如：123，输出321.
  */
 public class _1_ReverseInteger {
