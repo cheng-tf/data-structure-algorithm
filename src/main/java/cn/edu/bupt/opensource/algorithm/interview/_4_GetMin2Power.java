@@ -22,13 +22,14 @@ public class _4_GetMin2Power {
         n |= n >>> 4;
         n |= n >>> 8;
         n |= n >>> 16;
-        return (n < 0)?1:n+1;
+        return (n < 0) ? 1 : n+1;
     }
 
     public static void main(String[] args) {
         System.out.println(getMin2Power(13));
         System.out.println(getMin2Power(128));
         System.out.println(getMin2Power(6389));
+        System.out.println(getMin2Power(0x0ffb3eff));
     }
 
 }
