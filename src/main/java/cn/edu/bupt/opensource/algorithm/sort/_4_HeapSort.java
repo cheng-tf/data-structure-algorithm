@@ -21,13 +21,48 @@ import org.junit.Test;
  */
 public class _4_HeapSort {
 
-
     /**
-     * 堆排序
-     * @param arr
+     * 堆排序（大顶堆）
      */
     private void heapSort(int[] arr) {
+        buildMaxHead(arr);//初始堆
+        for(int i = arr.length-1; i > 1; i--) {
+            int temp = arr[0];//将堆顶元素与堆底元素交换
+            arr[0] = arr[i];
+            arr[i] = temp;
+            adjustDownToUp(arr, 0, i);//将剩余元素整理构建新的大顶堆
+        }
+    }
 
+    /**
+     * 建立初始堆
+     */
+    private void buildMaxHead(int[] arr) {
+        // 从最后一个节点arr.length-1的父节点（array.length-2）/2开始，直到根节点，反复调整堆
+        for(int i = (arr.length-2)/2; i >= 0; i--) {
+            adjustDownToUp(arr, i, arr.length);
+        }
+    }
+
+    /**
+     * 将元素arr[k]自下往上逐步调整树形结构
+     */
+    private void adjustDownToUp(int[] arr, int k, int len) {
+        int temp = arr[k];
+        // i为初始化节点k的左孩子，沿较大子节点向下调整
+        for(int i = 2*k+1; i < len-1; i=2*i+1) {
+            if(i < len && arr[i] < arr[i+1]) {
+                i++;//右孩子
+            }
+            // 若父节点 >= 左右孩子中较大者，则调整结束，否则互换
+            if(temp >= arr[i]) {
+                break;
+            } else {
+                arr[k] = arr[i];
+                k = i; //【关键】修改k值，以便继续向下调整
+            }
+        }
+        arr[k] = temp;
     }
 
     @Test

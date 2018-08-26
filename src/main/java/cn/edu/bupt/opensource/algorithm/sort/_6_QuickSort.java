@@ -41,6 +41,26 @@ public class _6_QuickSort {
         if(low >= high) {//递归结束条件
           return;
         }
+        /*
+        // 三位取中法
+        int mid = (low + high) / 2;
+        if(arr[low] > arr[high]) {
+            int temp = arr[low];
+            arr[low] = arr[high];
+            arr[high] = temp;
+        }
+        if(arr[mid] > arr[high]) {
+            int temp = arr[mid];
+            arr[mid] = arr[high];
+            arr[high] = temp;
+        }
+        if(arr[mid] > arr[low]) {
+            int temp = arr[mid];
+            arr[mid] = arr[low];
+            arr[low] = temp;
+        }
+        int key = arr[low];
+        */
         int key = arr[low];//基准元素，在此趟排序时空出一个位置
         int left = low, right = high;//存储
         while(left < right) {
@@ -57,7 +77,6 @@ public class _6_QuickSort {
         quickSort(arr, low, left-1);//低子序列递归排序
         quickSort(arr, left+1, high);//高子序列递归排序
     }
-
 
     @Test
     public void test() {
